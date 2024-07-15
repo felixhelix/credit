@@ -231,17 +231,20 @@ class CreditPlugin extends GenericPlugin
 			case 'authorform::display':
 				$authorForm =& $args[0];
 				$author = $authorForm->getAuthor();
-				if ($author) {
-                    // Build a list of roles for selection in the UI.
-                    $roleList = $this->getCreditRoles(AppLocale::getLocale());
+                // Build a list of roles for selection in the UI.
+                $roleList = $this->getCreditRoles(AppLocale::getLocale());
 
-					$templateMgr->assign(
-						array(
-							'authorCreditRoles' => $author->getData('creditRoles') ? $author->getData('creditRoles') : [],
-                            'creditRoles' => $roleList
-						    )
-					    );
-				}
+                $authorCreditRoles = [];
+                if ($author) {
+                    $authorCreditRoles = $author->getData('creditRoles') ? $author->getData('creditRoles') : [];
+                }
+
+                $templateMgr->assign(
+                    array(
+                        'authorCreditRoles' => $authorCreditRoles,
+                        'creditRoles' => $roleList
+                        )
+                    );
 
 				$templateMgr->registerFilter("output", array($this, 'authorFormFilter'));
 				break;
