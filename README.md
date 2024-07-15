@@ -10,3 +10,6 @@ Working group:
 - Esko Clarke Sario: Finnish Lifelong Learning Foundation (Kvs)
 - Alec Smecher: Public Knowledge Project
 - Frederique Belliard: Delft University of Technology - Library
+
+# Changes to main branch
+Added support for OJS 3.3

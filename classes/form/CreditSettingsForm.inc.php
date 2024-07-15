@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file classes/form/CreditSettingsForm.php
+ * @file classes/form/CreditSettingsForm.inc.php
  *
  * Copyright (c) 2014-2022 Simon Fraser University
  * Copyright (c) 2003-2022 John Willinsky
@@ -11,12 +11,7 @@
  * @brief Form for journal managers to setup the CRediT plugin.
  */
 
-namespace APP\plugins\generic\credit\classes\form;
-
-use PKP\form\Form;
-use PKP\form\validation\FormValidator;
-use PKP\linkAction\LinkAction;
-use PKP\linkAction\request\AjaxModal;
+import('lib.pkp.classes.form.Form');
 
 class CreditSettingsForm extends Form
 {
@@ -36,13 +31,13 @@ class CreditSettingsForm extends Form
         return $this->_contextId;
     }
 
-    /** @var DataciteExportPlugin */
+    /** @var CreditSettingsForm */
     public $_plugin;
 
     /**
      * Get the plugin.
      *
-     * @return DataciteExportPlugin
+     * @return CreditSettingsForm
      */
     public function _getPlugin()
     {
@@ -55,7 +50,7 @@ class CreditSettingsForm extends Form
     /**
      * Constructor
      *
-     * @param DataciteExportPlugin $plugin
+     * @param CreditSettingsForm $plugin
      * @param int $contextId
      */
     public function __construct($plugin, $contextId)
@@ -65,8 +60,8 @@ class CreditSettingsForm extends Form
 
         parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
 
-        $this->addCheck(new \PKP\form\validation\FormValidatorPost($this));
-        $this->addCheck(new \PKP\form\validation\FormValidatorCSRF($this));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
 
