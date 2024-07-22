@@ -9,9 +9,9 @@
  *
  *}
 {fbvFormSection list="true" title="CRedit Role" translate=false}
-	{foreach $creditRoles key="uri" item="term"}		
+	{foreach $creditRoles key="uri" item="i18n"}		
 		{fbvElement type="checkbox" 
-		label=$term|escape 
+		label=$i18n['name']|escape 
 		id="creditRoles[]" 
 		value=$uri
 		checked=in_array($uri, $authorCreditRoles)
