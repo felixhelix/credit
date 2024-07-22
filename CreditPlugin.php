@@ -242,10 +242,6 @@ class CreditPlugin extends GenericPlugin
                 // Build a list of roles for selection in the UI.
                 $roleList = $this->getCreditRoles(AppLocale::getLocale());
 
-                foreach ($roleList as $key => $item) {
-                    error_log($key . "->". $item['name']);  
-                }
-
                 $authorCreditRoles = [];
                 if ($author) {
                     $authorCreditRoles = $author->getData('creditRoles') ? $author->getData('creditRoles') : [];
@@ -314,7 +310,6 @@ class CreditPlugin extends GenericPlugin
         if (!PKPLocale::isLocaleValid($locale)) $locale = 'en';
         // We only can use the first part of the locale
         $locale = substr($locale, 0, 2);
-        error_log("locale: " . $locale);
         foreach ([$locale, 'en'] as $locale) {
             $path = dirname(__FILE__) . "/credit-translation/translations/{$locale}.json";
             if (!file_exists($path)) continue;
