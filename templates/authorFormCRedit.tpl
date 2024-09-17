@@ -8,7 +8,7 @@
  * Extensions to Submissioni Metadata Author add/edit Form
  *
  *}
-{fbvFormSection list="true" title="CRedit Role" translate=false}
+{fbvFormSection list="true" label="plugins.generic.credit.contributorRoles" translate=true description="plugins.generic.credit.contributorRoles.description"}
 	{foreach $creditRoles key="uri" item="i18n"}		
 		{fbvElement type="checkbox" 
 		label=$i18n['name']|escape 
